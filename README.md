@@ -2,12 +2,29 @@
 
 ` 💡 You Have To Add Validation On Main Service Not Into Getway Service If You Set Validation Into Getway It's Does Not Work Properly`
 
-```css
+```js
   🧠🧠🧠 আমাদের যদি সকল সার্ভিসের end points  গুলো এক না হয়,
   এবং আমদের কয়েকটি service এ ডাটা পাঠাবার প্রয়োজন হয়
  তাহলে যে সার্ভিসে ডাটা প্রয়োজন হবে সেই সার্ভিসে আমরা একটা main file বানাবো
  এবং আমরা main service থেকে যে নামে Publish করেছি,
- সেই নামে ই প্রয়োজনিয় অন্য file এ  subscribe করে থাকবো এবং ডাটা Get করবো 
+ সেই নামে ই প্রয়োজনিয় অন্য file এ  subscribe করে থাকবো এবং ডাটা Get করবো
+
+// Publish
+  if (result) {
+    await RedisClient.publish(
+      EVENT_ACADEMIC_SEMESTER_CREATED,
+      JSON.stringify(result)
+    );
+  }
+
+//Subscribe
+const initAcademicSemesterEvents = () => {
+  RedisClient.subscribe(EVENT_ACADEMIC_SEMESTER_CREATED, async (e: string) => {
+    const data: IAcademicSemesterCreatedEvent = JSON.parse(e);
+
+    await AcademicSemesterService.createSemesterFromEvent(data);
+    //console.log(data);
+  });
  ```
 
 ```css
