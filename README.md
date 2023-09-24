@@ -28,10 +28,12 @@ const initAcademicSemesterEvents = () => {
  ```
 
 ```css
+/* 🦀 AGENDA 🦀*/
+
 1. httpService
 2. getSingleData
 3. updateSingleData
-4. zod enumType
+4. zod-enumType
 ```
 
 
