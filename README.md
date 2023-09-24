@@ -2,6 +2,8 @@
 
 ` 💡 You Have To Add Validation On Main Service Not Into Getway Service If You Set Validation Into Getway It's Does Not Work Properly`
 
+`আমাদের যদি সকল সার্ভিসের end points  গুলো এক না হয় তাহোলে আমরা একটা main file বানাবো এবং আমরা আমরা একটা service এ যে নামে Create করেছি সেই নামে ই অন্য file এ  subscribe করে থাকবো এবং ডাটা get করবো `
+
 ```css
 1. httpService
 2. getSingleData
