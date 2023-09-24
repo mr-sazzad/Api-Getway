@@ -43,3 +43,19 @@ const CoreService = HttpService(config.coreServiceUrl);
 
 export { AuthService, CoreService, HttpService };
 ```
+
+### Get Single Data From Database Code
+
+```js
+// 🧠 get single Academic Semester from postgreSql database
+const getSingleFromDatabase = async (req: Request): Promise<IGenericResponse> => {
+  const id = req.params.id;
+  const response: IGenericResponse = await CoreService.get(`/academic-semesters/${id}`, {
+    params: req.query,
+    headers: {
+      Authorization: req.headers.authorization
+    }
+  });
+  return response;
+};
+```
