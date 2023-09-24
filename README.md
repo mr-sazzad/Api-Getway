@@ -1,5 +1,7 @@
 # university-management-api-gateway-starter
 
+` 💡 You Have To Add Validation On Main Service Not Into Getway Service If You Set Validation Into Getway It's Does Not Work Properly`
+
 ```css
 1. httpService
 2. getSingleData
