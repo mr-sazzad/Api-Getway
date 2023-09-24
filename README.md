@@ -4,6 +4,7 @@
 1. httpService
 2. getSingleData
 3. updateSingleData
+4. zod enumType
 ```
 
 
@@ -86,4 +87,12 @@ const updateSingleIntoDatabase = async (req: Request): Promise<IGenericResponse>
   return response;
 };
 
+```
+
+```ts
+// 🧠 zod validation Enum type
+
+    title: z.enum([...academicSemesterTitles] as [string, ...string[]], {
+      required_error: "Title is required"
+    })
 ```
