@@ -1,5 +1,11 @@
 # university-management-api-gateway-starter
 
+```css
+1. httpService
+2. getSingleData
+3. updateSingleData
+```
+
 
 ```js
 // 🧠 this is the httpService file
@@ -44,10 +50,11 @@ const CoreService = HttpService(config.coreServiceUrl);
 export { AuthService, CoreService, HttpService };
 ```
 
-### Get Single Data From Database Code
+### Get Single Data From Database
 
 ```js
 // 🧠 get single Academic Semester from postgreSql database
+
 const getSingleFromDatabase = async (req: Request): Promise<IGenericResponse> => {
   const id = req.params.id;
   const response: IGenericResponse = await CoreService.get(`/academic-semesters/${id}`, {
@@ -58,4 +65,25 @@ const getSingleFromDatabase = async (req: Request): Promise<IGenericResponse> =>
   });
   return response;
 };
+```
+
+### Update Single Data Into Database 
+
+```ts
+// 🧠 Updata Single Academic Semester Into Database Code
+
+const updateSingleIntoDatabase = async (req: Request): Promise<IGenericResponse> => {
+  const id = req.params.id;
+  const response: IGenericResponse = await CoreService.patch(  //💡spacify the method 
+    `/academic-semesters/${id}`, 
+    req.body,  //💡data uou want to update 
+    {
+      headers: {
+        Authorization: req.headers.authorization
+      }
+    }
+  );
+  return response;
+};
+
 ```
